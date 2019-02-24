@@ -28,14 +28,14 @@ namespace Shop.Web.Controllers
         }
 
         // GET: Products/Details/5
-        public IActionResult Details(int? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var product = this.productRepository.GetByIdAsync(id.Value);
+            var product = await this.productRepository.GetByIdAsync(id.Value);
             if (product == null)
             {
                 return NotFound();
@@ -43,6 +43,9 @@ namespace Shop.Web.Controllers
 
             return View(product);
         }
+
+            
+
 
         // GET: Products/Create
         public IActionResult Create()
