@@ -30,5 +30,18 @@
 
         public User User { get; set; }
 
+        public string ImageFullPath
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(this.ImageUrl))
+                {
+                    return null;
+                }
+
+                return $"https://shopweb20190223075045.azurewebsites.net{this.ImageUrl.Substring(1)}";
+            }
+        }
+
     }
 }

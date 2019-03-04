@@ -1,9 +1,9 @@
 ﻿namespace Shop.Web.Controllers.API
 {
+    using Data;
     using Microsoft.AspNetCore.Mvc;
-    using Shop.Web.Data;
 
-    [Route("api/[Controller]")] 
+    [Route("api/[Controller]")]
     public class ProductsController : Controller
     {
         private readonly IProductRepository productRepository;
@@ -16,11 +16,7 @@
         [HttpGet]
         public IActionResult GetProducts()
         {
-            return this.Ok(this.productRepository.GetAll());
+            return this.Ok(this.productRepository.GetAllWithUsers());
         }
-
-
-
-
     }
 }
